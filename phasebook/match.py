@@ -15,13 +15,11 @@ def match(match_id):
     start = time.time()
     msg = "Match found" if (is_match(*MATCHES[match_id])) else "No match"
     end = time.time()
-
     return {"message": msg, "elapsedTime": end - start}, 200
 
 
 def is_match(fave_numbers_1, fave_numbers_2):
-    for number in fave_numbers_2:
-        if number not in fave_numbers_1:
-            return False
+    
+    intersection = set(fave_numbers_1).intersection(set(fave_numbers_2))
 
-    return True
+    return ((False,True) [len(intersection) == len(fave_numbers_2)])
