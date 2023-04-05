@@ -20,6 +20,4 @@ def match(match_id):
 
 def is_match(fave_numbers_1, fave_numbers_2):
     
-    intersection = set(fave_numbers_1).intersection(set(fave_numbers_2))
-
-    return ((False,True) [len(intersection) == len(fave_numbers_2)])
+    return set(fave_numbers_2).issubset(set(fave_numbers_1))
